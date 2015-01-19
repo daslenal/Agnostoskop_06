@@ -28,11 +28,12 @@ public class Generator {
 	// Textures
 	String [] nukleusFilenames;
 	String [] bgFilenames;
-	String nukleusPath = "bin/textures/Nukleus"; // forward slashes
-	String bgPath = "bin/textures/BG"; // forward slashes
+	String nukleusPath = "data/textures/Nukleus"; // forward slashes
+	String bgPath = "data/textures/BG"; // forward slashes
 
 	int bgCol1, bgCol2, bgCol3;
 	int nukleusCol1, nukleusCol2, nukleusCol3;
+	int texNum;
 	
 	// General
 	float radius;
@@ -62,11 +63,11 @@ public class Generator {
 		
 		bgFilenames = loadFilenames(bgPath);
 		
-		bgLight = parent.loadImage("bin/textures/Gradients/bgLight.png");
-		gr_right = parent.loadImage("bin/textures/Gradients/right2.png");
-		gr_leftBottom = parent.loadImage("bin/textures/Gradients/bottomLeft2.png");
-		gr_topLeft = parent.loadImage("bin/textures/Gradients/topLeft.png");
-		gr_topRight = parent.loadImage("bin/textures/Gradients/topRight.png");
+		bgLight = parent.loadImage("data/textures/Gradients/bgLight.png");
+		gr_right = parent.loadImage("data/textures/Gradients/right2.png");
+		gr_leftBottom = parent.loadImage("data/textures/Gradients/bottomLeft2.png");
+		gr_topLeft = parent.loadImage("data/textures/Gradients/topLeft.png");
+		gr_topRight = parent.loadImage("data/textures/Gradients/topRight.png");
 	
 		gr_right.resize(parent.width, parent.height);
 		gr_leftBottom.resize(parent.width, parent.height);
@@ -139,9 +140,10 @@ public class Generator {
 			pg_gradient.image(gr_leftBottom,0,0);
 			pg_gradient.image(gr_right,0,0);
 			pg_gradient.endDraw();
-			parent.println(nukleusFilenames.length);
-			int texNum = (int) parent.map(values[8],values[9], values[10], 0, nukleusFilenames.length-1);
-			parent.println(texNum);
+			parent.println("nukleus.filenames.length: " + nukleusFilenames.length);
+			
+			texNum = (int) parent.map(values[8],0, values[10], 0, nukleusFilenames.length);
+			parent.println("texNum: " + texNum);
 			texNukleus = parent.loadImage(nukleusPath + "/" + nukleusFilenames[texNum]);
 			texNukleus.resize(parent.width, parent.height);
 			texNukleus.filter(parent.INVERT);

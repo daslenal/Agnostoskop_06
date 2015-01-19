@@ -54,13 +54,13 @@ public class Main extends PApplet {
 		generator = new Generator(this);
 		println("generator generiert");
 
-		startVideo = new Movie(this, "bin/screens/startScreen_1280.mp4");
+		startVideo = new Movie(this, "data/screens/startScreen_1280.mp4");
 		startVideo.loop();
 
-		startScreen = loadImage("bin/screens/startScreen_still_1280.png");			// StartScreen
+		startScreen = loadImage("data/screens/startScreen_still_1280.png");			// StartScreen
 		image(startScreen,0,0);
 
-		loadScreen = loadImage("bin/screens/loadScreen_1280.png");									// LoadScreen
+		loadScreen = loadImage("data/screens/loadScreen_1280.png");									// LoadScreen
 
 
 	}
@@ -80,8 +80,8 @@ public class Main extends PApplet {
 			println(values);
 
 			generator.generateImage(values);
-			saveFrame("bin/saveFrames/generatedImage.tif");
-			framebuffer = loadImage("bin/saveFrames/generatedImage.tif");
+			saveFrame("data/saveFrames/generatedImage.tif");
+			framebuffer = loadImage("data/saveFrames/generatedImage.tif");
 			showResult = true;
 			imgTime = millis();
 

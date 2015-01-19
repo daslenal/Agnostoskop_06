@@ -22,7 +22,7 @@ public class HandDetection{
 	refImg = parent.createImage(parent.width, parent.height,parent.RGB);
 	video = new Capture(parent, 640,480);
 	//video = new Capture(parent, 640, 480, "Mercury USB2.0 Camera");	// camera modul, 64°, 30cm fixfocus
-	refImg = parent.loadImage("bin/refImg.jpg");
+	refImg = parent.loadImage("data/refImg.jpg");
 	currImg = parent.createImage(refImg.width,  refImg.height,  parent.RGB);
 	video.start();
 	
@@ -88,7 +88,7 @@ public class HandDetection{
 	
 	public void setRefImg(){
 		refImg = video.get(cropL,cropT,video.width-cropR, video.height-cropB);
-		refImg.save("bin/refImg.jpg");
+		refImg.save("data/refImg.jpg");
 	}
 	
 	public int getAverageColReference(){
